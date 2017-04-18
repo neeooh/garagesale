@@ -17,8 +17,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 | environments.
 |
 */
-$config['base_url'] = 'http://ostatniaokazja.eu/';
-//$config['base_url'] = 'http://localhost/ostatniaokazja/';
+$config['base_url'] = 'http://localhost/garagesale/';
 
 /*
 |--------------------------------------------------------------------------

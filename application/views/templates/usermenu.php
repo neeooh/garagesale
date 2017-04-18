@@ -25,6 +25,15 @@
                             }
                     ?>
                 </ul>
+
+                <!-- Search box -->
+                <div class="input-group" style="margin-top:7px">
+                    <input type="text" class="form-control" placeholder="Szukaj produktu...">
+                    <span class="input-group-btn">
+                        <button class="btn btn-default" type="button">Szukaj</button>
+                    </span>
+                </div>
+        
             </div>
             
         </div>

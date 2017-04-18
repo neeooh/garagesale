@@ -1,0 +1,10 @@
+[27-Dec-2016 13:43:11 Europe/Berlin] PHP Fatal error:  Call to undefined function convert_accented_characters() in /home/ostaniao/public_html/application/controllers/Page.php on line 49
+[27-Dec-2016 13:43:55 Europe/Berlin] PHP Fatal error:  Call to a member function helper() on a non-object in /home/ostaniao/public_html/application/controllers/Page.php on line 7
+[27-Dec-2016 13:43:59 Europe/Berlin] PHP Fatal error:  Call to a member function helper() on a non-object in /home/ostaniao/public_html/application/controllers/Page.php on line 7
+[27-Dec-2016 14:05:43 Europe/Berlin] PHP Fatal error:  Call to undefined function generateSlug() in /home/ostaniao/public_html/application/controllers/Page.php on line 91
+[27-Dec-2016 14:46:17 Europe/Berlin] PHP Parse error:  syntax error, unexpected '}' in /home/ostaniao/public_html/application/controllers/Page.php on line 103
+[27-Dec-2016 14:57:21 Europe/Berlin] PHP Fatal error:  Call to undefined function edit() in /home/ostaniao/public_html/application/controllers/Page.php on line 102
+[27-Dec-2016 17:14:48 Europe/Berlin] PHP Fatal error:  Call to undefined function generateSlug() in /home/ostaniao/public_html/application/models/Product.php on line 22
+[27-Dec-2016 17:14:50 Europe/Berlin] PHP Fatal error:  Call to undefined function generateSlug() in /home/ostaniao/public_html/application/models/Product.php on line 22
+[27-Dec-2016 17:15:11 Europe/Berlin] PHP Fatal error:  Cannot access empty property in /home/ostaniao/public_html/system/core/Model.php on line 77
+[27-Dec-2016 17:15:12 Europe/Berlin] PHP Fatal error:  Cannot access empty property in /home/ostaniao/public_html/system/core/Model.php on line 77

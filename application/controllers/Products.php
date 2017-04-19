@@ -18,6 +18,28 @@ class Products extends MY_Controller {
         
         $this->load->library('image_lib');
     }
+
+	public function search()
+	{
+		$this->isPublic(TRUE); // Public page, no authentication required.
+
+		$query = $this->input->post("query");
+		$data['productObjects'] = $this->products_model->search_products($query);
+
+		// Get sortMode from GET
+        $sortMode = $this->input->get('sortMode');
+		if ($sortMode != 'asc' && $sortMode != 'desc' && $sortMode != 'newest' && $sortMode != 'oldest')
+		{
+            $sortMode = 'newest';   
+        }
+        $data['activeSortMode'] = $sortMode;
+        $data['query'] = $query;
+
+        $this->load->view('templates/usermenu', $this->pageTitle('Wyniki wyszukiwania'));
+        $this->load->view('products/search', $data);
+        $this->load->view('templates/footer');
+
+	}
     
 	public function index()
 	{

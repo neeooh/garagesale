@@ -4,8 +4,30 @@
 		public function __construct()
 		{
 			$this->load->database();
+
 		}
 		
+		public function search_products($query = null)
+		{
+			if($query != null)
+			{
+				// Load Product object class
+				$this->load->model('product');
+				
+				// Split the whole query into individual keywords
+				$matches = explode(" ", $query);
+				
+				$this->db->like('title', $matches[0], 'both');
+				for($i = 1; $i < sizeof($matches); $i++)
+				{
+					$this->db->or_like('title', $matches[$i], 'both');
+				}
+			
+				$query = $this->db->get('products');
+				return $query->result('product');
+			}
+		}
+
 		public function get_products($id = FALSE)
 		{
 			if ($id === FALSE)

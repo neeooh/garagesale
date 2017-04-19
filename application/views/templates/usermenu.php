@@ -25,16 +25,17 @@
                             }
                     ?>
                 </ul>
-
+                
                 <!-- Search box -->
-                <div class="input-group" style="margin-top:7px">
-                    <input type="text" class="form-control" placeholder="Szukaj produktu...">
-                    <span class="input-group-btn">
-                        <button class="btn btn-default" type="button">Szukaj</button>
-                    </span>
-                </div>
-        
-            </div>
+                <?php echo form_open('/products/search'); ?>
+                    <div class="input-group" style="margin-top:7px">
+                            <input type="text" class="form-control" name="query" placeholder="Szukaj produktu...">
+                            <span class="input-group-btn">
+                                <button class="btn btn-default" type="submit">Szukaj</button>
+                            </span>
+                    </div>
+                <?php echo form_close(); ?>
             
+            </div>
         </div>
     </nav>

@@ -7,21 +7,31 @@ class Home extends MY_Controller {
 	{
 		parent::__construct();
 		$this->load->model('products_model');
+		$this->load->model('settings_model');
 	}
 
 	public function index()
 	{
 		$data['products'] = $this->products_model->get_active_products();
 		
-		$this->load->view('templates/header');
+		//$this->load->view('templates/header');
 		$this->load->view('templates/usermenu');
 		$this->load->view('home/products', $data);
+		$this->load->view('templates/footer');
+	}
+
+	public function contact()
+	{
+		$data = $this->settings_model->get_settings();
+		
+		$this->load->view('templates/usermenu', $this->pageTitle('Kontakt'));
+		$this->load->view('home/contact', $data);
 		$this->load->view('templates/footer');
 	}
 	
 	public function login()
 	{
-		$this->load->view('templates/header');
+		//$this->load->view('templates/header');
 		$this->load->view('templates/usermenu');
 		$this->load->view('home/login');
 		$this->load->view('templates/footer');

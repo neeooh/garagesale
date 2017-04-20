@@ -6,15 +6,9 @@
 			$this->load->database();
 		}
 		
-		public function get_settings($name = FALSE)
+		public function get_settings()
 		{
-			if($name === FALSE)
-			{
-				$query = $this->db->get('settings');
-				return $query->result_array();
-			}
-			
-			$query = $this->db->get_where('settings', array('name' => $name));
+			$query = $this->db->get('settings');
 			return $query->row_array();
 		}
 		

@@ -35,7 +35,7 @@
 	<p><b>Cena: </b><?php echo $priceMessaage?></p>
 	
     <span class='glyphicon glyphicon-envelope' aria-hidden='true'></span>
-    <a href="mailto:<?php echo $productQuestionEmail['value']?>?subject=Pytanie%20o%20produkt: <?php echo $product['title']?>&body=Link produktu: <?php $this->load->helper('url'); echo current_url()?>">Zapytaj o ten produkt.</a>
+    <a href="mailto:<?php echo $contactSettings['contactEmail']?>?subject=Pytanie%20o%20produkt: <?php echo $product['title']?>&body=Link produktu: <?php $this->load->helper('url'); echo current_url()?>">Zapytaj o ten produkt.</a>
 </div>
 
 <?php

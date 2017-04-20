@@ -58,6 +58,8 @@ $route['jarmark'] = 'products/jarmark';
 $route['jarmark/product/(:any)/(:any)'] = 'products/product/$1/$2';
 $route['jarmark/(:any)'] = 'products/jarmark/$1';
 
+$route['contact'] = 'home/contact';
+
 $route['page'] = 'page/view';
 $route['page/add'] = 'page/add';
 $route['page/manage'] = 'page/manage';

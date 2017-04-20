@@ -17,22 +17,57 @@
 
 <?php } ?>
 
+
+<h2>Kontakt</h2>
 <?php 
     echo validation_errors();
     echo form_open_multipart();
 ?>
+	<!-- Contact Email -->
 	<div class="form-group row">
-		<div class='col-xs-12 col-sm-3'>
-			<p>"Zapytaj o ten produkt" email</p>
+		<div class='col-xs-12 col-sm-2'>
+			<p>Email</p>
 		</div>
-		<div class='col-xs-12 col-sm-9'>
+		<div class='col-xs-12 col-sm-10'>
 			<input
 				type='text'
-				name='productQuestionEmail'
+				name='contactEmail'
 				class='form-control'
-				placeholder='Email'
-				value="<?php echo $productQuestionEmail ?>">
+				placeholder='Adres email'
+				value="<?php echo $contactEmail ?>">
 		</div>
-	</div>                
+	</div>
+
+	<!-- Contact Phone-->
+	<div class="form-group row">
+		<div class='col-xs-12 col-sm-2'>
+			<p>Telefon</p>
+		</div>
+		<div class='col-xs-12 col-sm-10'>
+			<input
+				type='text'
+				name='contactPhone'
+				class='form-control'
+				placeholder='Numer telefonu'
+				value="<?php echo $contactPhone ?>">
+		</div>
+	</div>
+	
+	<!-- Contact Extra Notes -->
+	<div class="form-group row">
+		<div class='col-xs-12 col-sm-2'>
+			<p>Uwagi</p>
+		</div>
+		<div class='col-xs-12 col-sm-10'>
+			<textarea
+				name='contactExtraNotes'
+				class='form-control'
+				placeholder='Dodatkowe uwagi które będą pokazane użytkownikowi...'>
+<?php echo $contactExtraNotes ?>
+			</textarea>
+		</div>
+	</div>
+
+	<!-- Save button -->
 	<input type="submit" class="btn btn-default" value="Zapisz">
 <?php echo form_close()?>

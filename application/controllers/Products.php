@@ -111,7 +111,7 @@ class Products extends MY_Controller {
         
 		$imgRef = $data['product']['images_ref'];
 		$data['images'] = $this->products_model->get_product_pictures($imgRef);
-		$data['productQuestionEmail'] = $this->settings_model->get_settings("productQuestionEmail");
+		$data['contactSettings'] = $this->settings_model->get_settings();
         
         // Load badges
         $data['currentBadges'] = $this->badges_model->get_current_badges($id);

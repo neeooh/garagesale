@@ -12,22 +12,24 @@ class Settings extends MY_Controller {
 	public function index()
 	{		
 		$this->load->library('form_validation');
-		$this->form_validation->set_rules('productQuestionEmail', 'Zapytaj o ten produkt email', 'required|trim');
+		$this->form_validation->set_rules('contactEmail', 'Adress email', 'required|trim');
 		
 		if ($this->form_validation->run())
 		{
-			$queryData = array(
-				'name' => 'productQuestionEmail',
-				'value' => $this->input->post('productQuestionEmail')
+			$updatedData = array(
+				'contactEmail' => $this->input->post('contactEmail'),
+				'contactPhone' => $this->input->post('contactPhone'),
+				'contactExtraNotes' => $this->input->post('contactExtraNotes')
 			);
 			
-			$this->settings_model->update_settings($queryData);
+			$this->settings_model->update_settings($updatedData);
 		}
 		
-		$data['productQuestionEmail'] = $this->settings_model->get_settings('productQuestionEmail')['value'];
+		$data = $this->settings_model->get_settings();
 		
 		$this->load->view('templates/adminmenu', $this->pageTitle('Admin: Ustawienia'));
 		$this->load->view('settings/index', $data);
+		$this->load->view('templates/footer');
 	}
 	
 

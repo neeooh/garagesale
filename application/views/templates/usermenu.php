@@ -17,13 +17,17 @@
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul class='nav navbar-nav'>
                     <li><a href='<?php echo site_url()?>'>Wszystkie produkty</a></li>
+                    <li><a href='<?php echo site_url().'contact'?>'>Kontakt</a></li>
+                    <li><a href='<?php echo site_url().'news' ?>'>Wiadomości</a></li>
+                    
+                    <!--                    
                     <?php
                             $pages = $this->activePages;
                             foreach($pages as $page)
                             {
                                 Print "<li><a href='".site_url()."page/".$page['slug']."'>".$page['title']."</a></li>";
                             }
-                    ?>
+                    ?>-->
                 </ul>
                 
                 <!-- Search box -->

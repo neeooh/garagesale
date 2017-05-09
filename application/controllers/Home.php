@@ -5,23 +5,25 @@ class Home extends MY_Controller {
 	
 	public function __construct()
 	{
-		parent::__construct();
+	}
+
+	public function isPublic($bool)
+    {
+        parent::__construct($bool);
+		
 		$this->load->model('products_model');
 		$this->load->model('settings_model');
 	}
 
 	public function index()
 	{
-		$data['products'] = $this->products_model->get_active_products();
-		
-		//$this->load->view('templates/header');
-		$this->load->view('templates/usermenu');
-		$this->load->view('home/products', $data);
-		$this->load->view('templates/footer');
+		/* ToDo Call out function from products->index() ? */
 	}
 
 	public function contact()
 	{
+		$this->isPublic(TRUE);
+
 		$data = $this->settings_model->get_settings();
 		
 		$this->load->view('templates/usermenu', $this->pageTitle('Kontakt'));
@@ -49,7 +51,7 @@ class Home extends MY_Controller {
 			$data = array(
 				'email' => $this->input->post('email'),
 				'is_logged_in' => 1,
-				'name' => 'Alek'
+				'name' => 'Administrator'
 			);
 			$this->session->set_userdata($data);
 			

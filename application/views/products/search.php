@@ -1,3 +1,11 @@
+<?php
+	if($productObjects == null || sizeof($productObjects) == 0)
+	{
+		Print "<h2>Brak wynikow wyszukiwnia dla \"".$query."\"</h2>";
+		return;
+	}
+?>
+
 <h2>Wyniki wyszukiwania dla "<?php echo $query ?>"</h2>
 	<!-- Sort by button -->
 	<div class="btn-group">
@@ -17,6 +25,7 @@
 <?php
 	$i = 0;
 	$j = 0;
+
 	foreach($productObjects as $product)
 	{
 		if($i%6 == 0){

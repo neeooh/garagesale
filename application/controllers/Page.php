@@ -94,7 +94,7 @@ class Page extends MY_Controller {
 				'slug' => $newSlug, 
 				'title' => $title,
 				'content' => $this->input->post('content'),
-                'hidden' => $this->input->post('hidden')
+				'hidden' => ($this->input->post('hidden') == 1) ? 1 : 0
 			);
 			
 			$this->page_model->update_page($slug, $data);

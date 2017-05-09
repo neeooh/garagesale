@@ -32,3 +32,5 @@
                 </div>
         </div>
     </nav>
+    <!-- Empty div - used to add extra spacing etween the nav ar and the rest of ody-->
+    <div style='margin-top: 60px'></div>

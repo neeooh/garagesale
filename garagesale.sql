@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 06, 2017 at 03:19 PM
+-- Generation Time: May 09, 2017 at 06:12 PM
 -- Server version: 5.7.14
 -- PHP Version: 5.6.25
 
@@ -37,9 +37,9 @@ CREATE TABLE `admin_menu` (
 --
 
 INSERT INTO `admin_menu` (`id`, `url`, `title`) VALUES
-(1, 'admin/ManageProducts/', 'Zarzadzaj produktami'),
+(1, 'products/manage', 'Produkty'),
 (2, 'products/add', '+ Nowy produkt'),
-(3, 'page/manage', 'Zarzadzaj stronami'),
+(3, 'page/manage', 'Strony'),
 (4, 'page/add', '+ Nowa strona'),
 (5, 'headline/edit', 'Edytuj nagłówek'),
 (6, 'settings/', 'Ustawienia'),
@@ -63,7 +63,7 @@ CREATE TABLE `admin_users` (
 --
 
 INSERT INTO `admin_users` (`id`, `email`, `password`, `name`) VALUES
-(1, 'admin', 'administrator', 'Administrator');
+(1, 'admin', '200ceb26807d6bf99fd6f4f0d1ca54d4', 'Administrator');
 
 -- --------------------------------------------------------
 
@@ -77,6 +77,15 @@ CREATE TABLE `badges` (
   `sold` tinyint(1) NOT NULL,
   `auction` tinyint(1) NOT NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `badges`
+--
+
+INSERT INTO `badges` (`product_id`, `new`, `sold`, `auction`) VALUES
+(1, 1, 0, 0),
+(2, 1, 0, 0),
+(3, 1, 0, 0);
 
 -- --------------------------------------------------------
 
@@ -92,6 +101,13 @@ CREATE TABLE `images` (
   `main` tinyint(1) NOT NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 
+--
+-- Dumping data for table `images`
+--
+
+INSERT INTO `images` (`id`, `ref`, `path`, `thumb_path`, `main`) VALUES
+(1, '590e5968d7127', 'assets/images/590e5968d7127/surface-pro-2.jpg', 'assets/images/590e5968d7127/surface-pro-2_thumb.jpg', 1);
+
 -- --------------------------------------------------------
 
 --
@@ -105,6 +121,13 @@ CREATE TABLE `mod_jumbotron` (
   `enabled` tinyint(4) NOT NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 
+--
+-- Dumping data for table `mod_jumbotron`
+--
+
+INSERT INTO `mod_jumbotron` (`ID`, `header`, `content`, `enabled`) VALUES
+(1, 'Welcome to the Garage Sale!', 'We hope you will find many interesting items in this shop.', 1);
+
 -- --------------------------------------------------------
 
 --
@@ -113,12 +136,18 @@ CREATE TABLE `mod_jumbotron` (
 
 CREATE TABLE `pages` (
   `ID` int(11) NOT NULL,
-  `pageName` text NOT NULL,
-  `url` text NOT NULL,
+  `slug` text NOT NULL,
   `title` text NOT NULL,
   `content` text NOT NULL,
   `hidden` tinyint(1) NOT NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `pages`
+--
+
+INSERT INTO `pages` (`ID`, `slug`, `title`, `content`, `hidden`) VALUES
+(8, 'test', 'test', 'page test<br>', 1);
 
 -- --------------------------------------------------------
 
@@ -132,8 +161,18 @@ CREATE TABLE `products` (
   `description` text CHARACTER SET cp1250 COLLATE cp1250_polish_ci NOT NULL,
   `price` text CHARACTER SET cp1250 COLLATE cp1250_polish_ci NOT NULL,
   `images_ref` text NOT NULL,
-  `hidden` tinyint(1) NOT NULL DEFAULT '0'
+  `hidden` tinyint(1) NOT NULL DEFAULT '0',
+  `hidden_notes` text NOT NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `products`
+--
+
+INSERT INTO `products` (`id`, `title`, `description`, `price`, `images_ref`, `hidden`, `hidden_notes`) VALUES
+(1, 'test', 'test product<br>', '6.66', '590e5957545eb', 0, '<br>'),
+(2, 'test', 'test product<br>', '6.66', '590e5963c433b', 0, '<br>'),
+(3, 'test123', 'test product<br>', '6.669', '590e5968d7127', 0, 'test 333');
 
 -- --------------------------------------------------------
 
@@ -143,15 +182,35 @@ CREATE TABLE `products` (
 
 CREATE TABLE `settings` (
   `ID` int(11) NOT NULL,
-  `name` text NOT NULL,
-  `value` text NOT NULL
+  `contactPhone` text NOT NULL,
+  `contactEmail` text NOT NULL,
+  `contactExtraNotes` text NOT NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `settings`
 --
 
-INSERT INTO `settings` (`ID`, `name`, `value`) VALUES
+INSERT INTO `settings` (`ID`, `contactPhone`, `contactEmail`, `contactExtraNotes`) VALUES
+(1, '0123456789', 'abcreative@interia.pl', 'This space can be used to display extra information to the visitors of your website.');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `settings-copy`
+--
+
+CREATE TABLE `settings-copy` (
+  `ID` int(11) NOT NULL,
+  `name` text NOT NULL,
+  `value` text NOT NULL
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `settings-copy`
+--
+
+INSERT INTO `settings-copy` (`ID`, `name`, `value`) VALUES
 (1, 'productQuestionEmail', 'abcreative@interia.pl');
 
 -- --------------------------------------------------------
@@ -164,6 +223,15 @@ CREATE TABLE `tags` (
   `tag_name` text NOT NULL,
   `product_id` int(11) NOT NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `tags`
+--
+
+INSERT INTO `tags` (`tag_name`, `product_id`) VALUES
+('main', 1),
+('main', 2),
+('main', 3);
 
 -- --------------------------------------------------------
 
@@ -237,6 +305,12 @@ ALTER TABLE `settings`
   ADD PRIMARY KEY (`ID`);
 
 --
+-- Indexes for table `settings-copy`
+--
+ALTER TABLE `settings-copy`
+  ADD PRIMARY KEY (`ID`);
+
+--
 -- Indexes for table `user_menu`
 --
 ALTER TABLE `user_menu`
@@ -260,12 +334,12 @@ ALTER TABLE `admin_users`
 -- AUTO_INCREMENT for table `badges`
 --
 ALTER TABLE `badges`
-  MODIFY `product_id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `product_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 --
 -- AUTO_INCREMENT for table `images`
 --
 ALTER TABLE `images`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 --
 -- AUTO_INCREMENT for table `mod_jumbotron`
 --
@@ -275,16 +349,21 @@ ALTER TABLE `mod_jumbotron`
 -- AUTO_INCREMENT for table `pages`
 --
 ALTER TABLE `pages`
-  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 --
 -- AUTO_INCREMENT for table `products`
 --
 ALTER TABLE `products`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 --
 -- AUTO_INCREMENT for table `settings`
 --
 ALTER TABLE `settings`
+  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+--
+-- AUTO_INCREMENT for table `settings-copy`
+--
+ALTER TABLE `settings-copy`
   MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 --
 -- AUTO_INCREMENT for table `user_menu`

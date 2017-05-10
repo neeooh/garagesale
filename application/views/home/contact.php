@@ -1,4 +1,10 @@
-<h1>Kontakt</h1>
-<p><b>Email</b> <?php echo $contactEmail ?></p>
-<p><b>Telefon</b> <?php echo $contactPhone ?></p>
-<p><b>Uwagi</b> <?php echo $contactExtraNotes ?></p>
+<h1 class="sr-only sr-only-focusable">Kontakt</h1>
+
+<dl>
+  <dt>Email</dt>
+  <dd><?php echo $contactEmail ?></dd><br>
+  <dt>Telefon</dt>
+  <dd><?php echo $contactPhone ?></dd><br>
+  <dt>Uwagi</dt>
+  <dd><?php echo $contactExtraNotes ?></dd>
+</dl>

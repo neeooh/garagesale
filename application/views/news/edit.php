@@ -10,7 +10,7 @@
 </div>
 <?php } ?>
 
-<h1>Edytuj stronę</h1>
+<h1>Edytuj ogłoszenie</h1>
 
 <?php 
     echo validation_errors();
@@ -36,9 +36,16 @@
 <div class='form-group'>
     <label>
         <input type='checkbox' name='hidden' <?php echo ($hidden == 1) ? ' checked ' : ' ' ?> value='1'/>
-        Ukryj stronę ze sklepu.
+        Ukryj ogłoszenie ze sklepu.
     </label>
-    <span class="glyphicon glyphicon-question-sign text-muted" aria-hidden="true" title="Całkowicie ukrywa i odmawia dostępu do strony."></span>
+    <span class="glyphicon glyphicon-question-sign text-muted" aria-hidden="true" title="Ukrywa ogłoszenie ze sklepu."></span>
+</div>
+<div class='form-group'>
+    <label>
+        <input type='checkbox' name='pinned' <?php echo ($pinned == 1) ? ' checked ' : ' ' ?> value='1'/>
+        Przypnij ogłoszenie.
+    </label>
+    <span class="glyphicon glyphicon-question-sign text-muted" aria-hidden="true" title="Przypina ogłoszenie na górze listy wszystkich ogłoszeń"></span>
 </div>
 
 <input type='submit' class='btn btn-default' value='Zapisz'>

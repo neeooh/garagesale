@@ -13,7 +13,6 @@ class MY_Controller extends CI_Controller {
             redirect('authentication/restricted');    
         }
         
-        $this->setUserMenuItems();
     }
     
     /// Helper methods used across different controllers
@@ -22,10 +21,4 @@ class MY_Controller extends CI_Controller {
         return array('pageTitle' => $title);
     }
     
-    // Calculate menu items for user menu.
-    public function setUserMenuItems()
-    {
-        $this->load->model('page_model');
-        $this->activePages = $this->page_model->get_active_pages_data();
-    }
 }

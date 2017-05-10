@@ -1,7 +1,7 @@
 <?php
 	if($productObjects == null || sizeof($productObjects) == 0)
 	{
-		Print "<h2>Brak wynikow wyszukiwnia dla \"".$query."\"</h2>";
+		Print "<h2>Brak wyników wyszukiwnia dla \"".$query."\"</h2>";
 		return;
 	}
 ?>

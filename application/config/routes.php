@@ -60,6 +60,10 @@ $route['jarmark/(:any)'] = 'products/jarmark/$1';
 
 $route['contact'] = 'home/contact';
 
+$route['news'] = 'news/view';
+$route['news/(:num)'] = 'news/view/$1';
+$route['news/(:num)/(:any)'] = 'news/view/$1';
+
 $route['page'] = 'page/view';
 $route['page/add'] = 'page/add';
 $route['page/manage'] = 'page/manage';

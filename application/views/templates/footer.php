@@ -24,5 +24,32 @@
     </script>
 
     <script src="<?php echo site_url()?>assets/lightbox2-master/js/lightbox.min.js"></script>
+
+    <!-- Bug Reporting - Instabug-->
+    <script src='https://s3.amazonaws.com/instabug-pro/sdk_releases/instabugsdk-1.1.1.min.js'></script>
+    <?php
+        switch (ENVIRONMENT) {
+            case 'development':
+                # Development/Beta Site bug feed
+                Print "
+    <script>
+        ibgSdk.init({
+        token: 'ff16f88af27bcf08cde9e192c66fb10e'
+        });
+    </script>";
+                break;
+            
+            default:
+                # Production Site bug feed
+                Print "
+    <script>
+        ibgSdk.init({
+        token: 'c1497f366781048ec756eea08904a2d5'
+        });
+    </script>";
+                break;
+        }
+    ?>
+
 </body>
 </html>

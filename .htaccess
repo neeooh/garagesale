@@ -1,9 +1,11 @@
+SetEnv CI_ENV development
+
 <IfModule mod_rewrite.c>
 	RewriteEngine on
 	RewriteCond $1 !^(index\.php|opona\.jpg|test\.php|analytics|assets|robots\.txt)
 	
 	### Production
-	# RewriteRule ^(.*)$ /index.php/$1 [L]
+	#RewriteRule ^(.*)$ /index.php/$1 [L]
 	
 	### Development
 	RewriteRule ^(.*)$ /garagesale/index.php/$1 [L]

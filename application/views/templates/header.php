@@ -13,7 +13,7 @@
       echo link_tag('assets/lightbox2-master/css/lightbox.min.css');
     ?>
 
-    <title><?php echo (strlen($pageTitle) > 0) ? $pageTitle." | " : "" ?> Ostatnia Okazja!</title>
+    <title><?php echo (strlen($pageTitle) > 0) ? $pageTitle." | " : "" ?> TheGarage.Sale</title>
 
     <?php
       if (ENVIRONMENT == 'production')

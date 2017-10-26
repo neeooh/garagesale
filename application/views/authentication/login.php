@@ -1,4 +1,4 @@
-<h1>Administracja</h1>
+<h1><?php echo lang('login_headline')?></h1>
 <br>
 <?php
 	echo form_open('authentication/login_validation', array('class' => 'loginForm'));
@@ -9,7 +9,7 @@
 		'name' => 'email',
 		'class' => 'form-control',
 		'width' => '100px',
-		'placeholder' => 'Email'
+		'placeholder' => lang('login_email_bg')
 		));
 	echo "</div>";
 	
@@ -17,7 +17,7 @@
 	echo form_password(array(
 		'name' => 'password',
 		'class' => 'form-control',
-		'placeholder' => 'Hasło'
+		'placeholder' => lang('login_pass_bg')
 		));
 	echo "</div>";
 	
@@ -25,7 +25,7 @@
 	echo form_submit(
 		array(
 		'name' => 'login_submit',
-		'value' => 'Zaloguj się',
+		'value' => lang('login_submit_btn'),
 		'class' => 'btn btn-default',
 		'width' => '100px'
 		));

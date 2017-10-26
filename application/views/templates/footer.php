@@ -1,9 +1,34 @@
         <footer class='center-text text-muted'>
             <hr>
         <?php
+            
+            echo form_open();
+            echo lang('site_lang', 'selectedlanguage');
+        ?>
+
+        
+          <select name="language" onchange="javascript:this.form.submit();">
+             <?php
+                $languages = array('english'=>"English", 'polish'=>"Polski");
+
+                foreach($languages as $key=>$val) {
+                  if($key == $selected_language)
+                        echo "<option value='".$key."' selected>".$val."</option>";
+                   else
+                        echo "<option value='".$key."'>".$val."</option>";
+                }
+             ?>
+
+          </select>
+          <br>
+            
+        <?php
+            form_close();
+            
+            
             $currentPageName = basename($_SERVER['PHP_SELF']);
         
-            Print "<p>Ostatnia Okazja &copy; 2015 - ".date("Y")."</p>";
+            Print "<p>The Garage Sale &copy; 2015 - ".date("Y")."</p>";
             
             /*
             if(!($currentPageName == "index.php" || $currentPageName == "viewproduct.php" || $currentPageName == "viewpage.php")){

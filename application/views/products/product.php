@@ -15,15 +15,15 @@
             Print "<span class='horizontal-tag-line'>";
             if($currentBadges['new'] == 1)
             {
-                Print "<span class='label horizontal-label label-success tag-label' style='font-size: 14px;vertical-align: middle'>nowy</span>";
+                Print "<span class='label horizontal-label label-success tag-label' style='font-size: 14px;vertical-align: middle'>".lang('product_label_new')."</span>";
             }
             if($currentBadges['sold'] == 1)
             {
-                Print "<span class='label horizontal-label label-danger tag-label' style='font-size: 14px;vertical-align: middle'>sprzedany</span>";
+                Print "<span class='label horizontal-label label-danger tag-label' style='font-size: 14px;vertical-align: middle'>".lang('product_label_sold')."</span>";
             }
             if($currentBadges['auction'] == 1)
             {
-                Print "<span class='label horizontal-label label-warning tag-label' style='font-size: 14px;vertical-align: middle'>licytacja</span>";
+                Print "<span class='label horizontal-label label-warning tag-label' style='font-size: 14px;vertical-align: middle'>".lang('product_label_auction')."</span>";
             }
             Print "</span>";
 
@@ -31,11 +31,11 @@
     </h1> 
     <p><?php echo $product['description']?></p>
 	
-    <?php $priceMessaage = (strlen($product['price']) == 0) ? "zapytaj" : $product['price']." zł"?>
-	<p><b>Cena: </b><?php echo $priceMessaage?></p>
+    <?php $priceMessaage = (strlen($product['price']) == 0) ? lang('product_price_unspecified') : $product['price']." zł"?>
+	<p><b><?php echo lang('product_price_label').": " ?></b><?php echo $priceMessaage?></p>
 	
     <span class='glyphicon glyphicon-envelope' aria-hidden='true'></span>
-    <a href="mailto:<?php echo $contactSettings['contactEmail']?>?subject=Pytanie%20o%20produkt: <?php echo $product['title']?>&body=Link produktu: <?php $this->load->helper('url'); echo current_url()?>">Zapytaj o ten produkt.</a>
+    <a href="mailto:<?php echo $contactSettings['contactEmail']?>?subject=Pytanie%20o%20produkt: <?php echo $product['title']?>&body=Link produktu: <?php $this->load->helper('url'); echo current_url()?>"><?php echo lang('product_contact_seller') ?></a>
 </div>
 
 <?php

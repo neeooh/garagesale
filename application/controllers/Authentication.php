@@ -35,7 +35,8 @@ class Authentication extends MY_Controller {
 			$data = array(
 				'email' => $this->input->post('email'),
 				'is_logged_in' => 1,
-				'name' => 'Alek'
+				'name' => 'Alek',
+                'language' => 'polish'
 			);
 			$this->session->set_userdata($data);
 			

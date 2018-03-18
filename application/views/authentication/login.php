@@ -1,3 +1,14 @@
+<?php
+
+   if ($this->input->get('msg') == 'signupsuccess')
+   {
+       $this->load->helper('frontend');
+       showDismissibleMsg(lang('signup_success_msg'));
+       
+   }
+
+?>
+<div class="text-center">
 <h1><?php echo lang('login_headline')?></h1>
 <br>
 <?php
@@ -33,3 +44,4 @@
 	
 	echo form_close();
 ?>
+</div>

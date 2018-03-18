@@ -12,7 +12,7 @@
       echo link_tag('assets/css/bootstrap-theme.css');
       echo link_tag('assets/lightbox2-master/css/lightbox.min.css');
     ?>
-
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <title><?php echo (strlen($pageTitle) > 0) ? $pageTitle." | " : "" ?> TheGarage.Sale</title>
 
     <?php
@@ -50,6 +50,6 @@
         ";
       }
     ?>
-  
+ 
 </head>
 <body>

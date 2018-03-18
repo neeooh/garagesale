@@ -66,35 +66,8 @@ class Products extends MY_Controller {
         $data['activeSortMode'] = $sortMode;
         
         $this->load->view('templates/usermenu', $this->pageTitle('Wiosenna Wyprzedaż!'));
+        $this->load->view('home/jumbotron', $data);
         $this->load->view('products/products', $data);
-        $this->load->view('templates/footer');
-	}
-	
-	// Temporary page
-	// Tata chcial strone do jarmarku
-	public function jarmark()
-	{
-        $this->isPublic(TRUE); // Public page, no authentication required.
-        
-		// Get sortMode from GET
-        $sortMode = $this->input->get('sortMode');
-        
-		if ($sortMode != 'asc' && $sortMode != 'desc' && $sortMode != 'newest' && $sortMode != 'oldest')
-		{
-            $sortMode = 'newest';   
-        }
-        
-        // Get Product objects
-        // TO-DO
-        // Getting products with multiple tags doesn't work ... yet.
-        $productTags = array(
-            'tag_name'		=> "jarmark"
-            );
-        $data['productObjects'] = $this->products_model->get_active_products_objects($productTags, $sortMode);
-        $data['activeSortMode'] = $sortMode;
-        
-        $this->load->view('templates/usermenu', $this->pageTitle('Wiosenna Wyprzedaż!'));
-        $this->load->view('products/jarmark', $data);
         $this->load->view('templates/footer');
 	}
 	

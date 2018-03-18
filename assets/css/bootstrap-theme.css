@@ -618,7 +618,8 @@ input.list-group-item {
 
 .loginForm
 {
-  max-width: 350px;
+  max-width: 450px;
+    margin: 0 auto;
 }
 
 .width-100
@@ -663,4 +664,84 @@ span.label.label-default {
     right: 0;
     width: 100px;
     text-align: right;
+}
+
+/* Helpers Typography Text */
+.text-align-left{
+	text-align: left;
+}
+
+.text-align-right{
+	text-align: right;
+}
+
+
+
+
+@media (min-width: 768px) {
+	
+}
+
+.navbar-nav {
+		text-align: right;
+    
+	}
+
+nav.navbar {
+    background-color: lightsalmon !important;
+}
+
+nav form{
+    width: 100%;
+}
+
+nav form .input-group{
+    width: 100% !important;
+}
+
+nav form input{
+    text-align: center;
+}
+
+.navbar-toggler {
+     border: none;
+}
+
+/* Fixes margins for Search Box*/
+
+
+#search_form input{
+	text-align: left;
+}
+
+/* Fixes width of Search Box*/
+.input-group {
+    display: flex;
+}
+
+/* Highlighted Menu item */
+.navbar-inverse .navbar-nav > li > a.highlighted {
+    color: #fff;
+}
+
+.jumbotron li{
+	font-size: 1.4em;
+}
+
+.font-small-print{
+	font-size: 0.85em !important;
+}
+
+.jumbotron {
+    padding-top: 12px;
+    padding-bottom: 12px;
+}
+
+.jumbotron p {
+  margin-bottom: 0;
+}
+
+.modal-body ul{
+    list-style-type: none;
+    padding: 0;
 }

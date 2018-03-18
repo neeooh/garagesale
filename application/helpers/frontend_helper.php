@@ -12,3 +12,16 @@
             return $pages;
         }
     }
+
+    if ( ! function_exists('showDismissibleMsg'))
+    {
+        function showDismissibleMsg($msg)
+        {
+            Print "<div id='messageToDismiss' class='row bg-success'>
+    <p>".$msg."</p>
+    <button type='button' class='close' aria-label='Close' onclick='document.getElementById('messageToDismiss').setAttribute('style', 'display: none');'>
+        <span aria-hidden='true'>&times;</span>
+    </button>
+</div>";
+        }
+    }

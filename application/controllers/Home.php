@@ -26,8 +26,17 @@ class Home extends MY_Controller {
 
 		$data = $this->settings_model->get_settings();
 		
-		$this->load->view('templates/usermenu', $this->pageTitle('Kontakt'));
+		$this->load->view('templates/usermenu', $this->pageTitle('Contact us'));
 		$this->load->view('home/contact', $data);
+		$this->load->view('templates/footer');
+	}
+    
+    public function about()
+	{
+		$this->isPublic(TRUE);
+		
+		$this->load->view('templates/usermenu', lang('nav_item_03'));
+		$this->load->view('home/about');
 		$this->load->view('templates/footer');
 	}
 	

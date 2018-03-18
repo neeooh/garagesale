@@ -6,4 +6,4 @@
 	echo "</pre>";	
 ?>
 
-<a href='<?php echo base_url()."/home/logout"; ?>'>Wyloguj sie</a>
+<a href='<?php echo base_url()."authentication/logout"; ?>'>Log-out</a>

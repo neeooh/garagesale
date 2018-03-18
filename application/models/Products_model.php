@@ -27,6 +27,19 @@
 				return $query->result('product');
 			}
 		}
+        
+        public function get_products_by_garage_id($garage_id = null)
+		{
+			if ($garage_id != null)
+			{
+                // Load Product object class
+				$this->load->model('product');
+                
+                $this->db->where('garage_id', $garage_id);
+				$query = $this->db->get('products');
+				return $query->result('product');
+			}
+		}
 
 		public function get_products($id = FALSE)
 		{

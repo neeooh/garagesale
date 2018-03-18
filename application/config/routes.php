@@ -51,6 +51,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 */
 $route['default_controller'] = 'products/index';
 $route['login'] = 'authentication/login';
+$route['signup'] = 'authentication/signup';
 $route['admin'] = 'admin/index';
 $route['(:any)'] = 'products/index/$1';
 
@@ -58,7 +59,11 @@ $route['jarmark'] = 'products/jarmark';
 $route['jarmark/product/(:any)/(:any)'] = 'products/product/$1/$2';
 $route['jarmark/(:any)'] = 'products/jarmark/$1';
 
+$route['garages'] = 'garages/index';
+$route['garages/(:any)'] = 'garages/index/$1';
+
 $route['contact'] = 'home/contact';
+$route['about'] = 'home/about';
 
 $route['news'] = 'news/view';
 $route['news/(:num)'] = 'news/view/$1';
